@@ -4,14 +4,12 @@
 
 A polished, interactive proof-of-concept for monitoring Amazon listings through the Selling Partner API (SP-API), comparing current data with stored baselines, and alerting operators when material changes are detected.
 
-![SentinelSP dashboard](assets/dashboard.png)
-
 ## Live demo features
 
 - Catalogue dashboard with listing health, price, inventory and status
 - One-click **Simulate change** workflow
 - Before/after evidence for title, price, bullet, image and inventory changes
-- Search, filters, catalogue management and CSV export
+- Search, filters and listing review workflow
 - Alert routing UI for email, Telegram and Slack
 - Live event stream and notification centre
 - Responsive interface suitable for GitHub Pages
@@ -27,11 +25,11 @@ python -m http.server 8080
 
 Open `http://localhost:8080`.
 
-You can also open `index.html` directly in a modern browser, although a local server is recommended.
+You can also open `index.html` directly in a modern browser.
 
 ## GitHub Pages deployment
 
-This repository includes a GitHub Actions workflow that publishes the static application whenever `main` is updated. If Pages has not yet been activated for the repository, open **Settings → Pages** and select **GitHub Actions** as the source.
+This repository includes a GitHub Actions workflow that publishes the static application whenever `main` is updated. If Pages has not yet been activated, open **Settings → Pages** and select **GitHub Actions** as the source.
 
 ## Production architecture
 
@@ -60,13 +58,13 @@ See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for the implementation plan.
 
 ## Suggested production stack
 
-- **Backend:** Node.js/TypeScript, NestJS or Fastify
+- **Backend:** Node.js/TypeScript with NestJS or Fastify
 - **Database:** PostgreSQL
 - **Queue/events:** Amazon SQS
 - **Scheduling:** EventBridge or a worker queue
 - **Secrets:** AWS Secrets Manager
 - **Frontend:** React/Next.js
-- **Alerts:** Amazon SES, Telegram Bot API, Slack webhooks
+- **Alerts:** Amazon SES, Telegram Bot API and Slack webhooks
 - **Hosting:** AWS ECS/Fargate, Lambda, or another managed container platform
 
 ## Security
